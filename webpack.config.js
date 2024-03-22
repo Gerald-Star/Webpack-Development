@@ -16,7 +16,6 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name][contenthash].js',
   },
-
   /*configure the loaders so that any file that ends with this scss
   will be replied by this loaders
   */
