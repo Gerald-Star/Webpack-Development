@@ -1,6 +1,7 @@
 // ? bring the path module by setting entry
 
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin') // ? set the plugins under the module
 
 module.exports = {
 
@@ -13,7 +14,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: '[name][contenthash].js',
   },
 
   /*configure the loaders so that any file that ends with this scss
@@ -29,4 +30,11 @@ module.exports = {
     },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Webpack App',
+      filename: 'index.html',
+      template: 'src/template.html',
+    })
+  ]
 }
