@@ -33,6 +33,7 @@ click 'y' when asked if you wanna instal webpack-dev-server
 ## To avoid running multiple files on the bundle
 
 set on the output, clean to true. This keeps only one file.
+On the output set the assetModuleFilename:'[name][ext]'
 
 ## Add source map using devtool  to help you debug
 
@@ -52,6 +53,7 @@ set options: presets and pass the @babel/preset-env
 
 
 ## To upload an image
+
 in webpack.config.js add the access loader extension
 test: (png|svg|jpg|jpeg|gif)$/,
 type: 'asset'/resource
@@ -62,4 +64,8 @@ npm i axios
 
 run - npm run dev
 
-On the output set the assetModuleFilename:'[name][ext]'
+## instal bundle Analyzer
+
+npm i -D webpack-bundle.analyzer
+
+

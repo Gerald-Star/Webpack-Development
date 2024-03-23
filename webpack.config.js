@@ -2,6 +2,8 @@
 
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin') // ? set the plugins under the module
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').
+  BundleAnalyzerPlugin
 
 module.exports = {
 
@@ -60,6 +62,7 @@ module.exports = {
       title: 'Webpack App',
       filename: 'index.html',
       template: 'src/template.html',
-    })
-  ]
+    }),
+    new BundleAnalyzerPlugin(),
+  ],
 }
