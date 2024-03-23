@@ -15,6 +15,19 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name][contenthash].js',
+    clean: true,
+    assetModuleFilename: '[name][next]',
+  },
+  devtool: 'source-map',
+  devServer: {
+    static: {
+      directory: path.resolve(__dirname, 'dist'),
+    },
+    port: 3000,
+    open: true,
+    hot: true,
+    compress: true,
+    historyApiFallback: true,
   },
   /*configure the loaders so that any file that ends with this scss
   will be replied by this loaders
@@ -25,7 +38,20 @@ module.exports = {
       use: [
         'style-loader', 'css-loader', 'sass-loader'
       ],
-
+    },
+    {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      use: {
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-env'],
+        },
+      },
+    },
+    {
+      test: /\.(png|svg|jpeg|jpg|gif)$/i,
+      type: 'asset/resource',
     },
     ],
   },
