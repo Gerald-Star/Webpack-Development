@@ -4,4 +4,9 @@ import laptop from './assets/laptop.png'
 
 const laptopImg = document.getElementById('laptopImg')
 laptopImg.src = laptop
-console.log(generateJoke())
+
+const jokeBtn = document.getElementById('jokeBtn')
+jokeBtn.addEventListener('click', generateJoke)
+
+//console.log(generateJoke())
+generateJoke()
